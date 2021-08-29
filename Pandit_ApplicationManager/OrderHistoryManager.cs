@@ -196,6 +196,7 @@ namespace Pandit_ApplicationManager
                     model.Opencall = Convert.ToInt64(ds.Tables[0].Rows[0]["Opencall"]);
                     model.Openchat = Convert.ToInt64(ds.Tables[1].Rows[0]["OpenChat"]);
                     model.Openservice = Convert.ToInt64(ds.Tables[2].Rows[0]["Openorders"]);
+                    
                     model.acceptedservice = Convert.ToInt64(ds.Tables[3].Rows[0]["Acceptedservices"]);
                     model.completedservice = Convert.ToInt64(ds.Tables[4].Rows[0]["Closedservices"]);
                     model.rejectedservice = Convert.ToInt64(ds.Tables[5].Rows[0]["Rejectedservices"]);

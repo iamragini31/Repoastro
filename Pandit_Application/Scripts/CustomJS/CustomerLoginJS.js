@@ -173,7 +173,7 @@ function CustomerLogin() {
             window.location.href = "/AddWalletMoney/AddWalletMoney?PanditId=" + id + "&Service=" + service + "&fivemincharge=" + fivemincharge + ""
         }
         else if (walletamt >= fivemincharge && walletamt!=0) {
-            window.location.href = "/CallIntakeForm/CallIntakeForm?PanditId=" + id + "&Service=Call"
+            window.location.href = "/CallIntakeForm/CallIntakeForm?PanditId=" + id + "&Service=" + service+""
         }
    else {
                 //if (service == "1" ) {
