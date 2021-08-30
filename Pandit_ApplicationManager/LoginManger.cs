@@ -29,6 +29,7 @@ namespace Pandit_ApplicationManager
                         LoginModel loginmodel = new LoginModel();
                         loginmodel.ID = Convert.ToInt64(dt.Rows[i]["ID"].ToString());
                         loginmodel.Status = dt.Rows[i]["Status"].ToString();
+                        loginmodel.UserName = dt.Rows[i]["FullName"].ToString();
                         listLoginModel.Add(loginmodel);
 
                     }
