@@ -53,7 +53,7 @@ namespace Pandit_Application.Controllers
             if (res.Count > 0)
             {
                 Session["PanditID"] = res[0].ID;
-
+                Session["UserName"] = res[0].UserName;
                 Status = res[0].Status;
 
                 //if (Status == "1")

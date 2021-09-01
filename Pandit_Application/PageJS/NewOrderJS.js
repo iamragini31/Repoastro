@@ -222,7 +222,7 @@ function BindChat() {
                         + "   <td>" + item.Topicforcall + "</td > "
                         + "   <td>" + item.Language + "</td > "
                         //+ "   <td>" + item.Service + "</td > "
-                        + "   <td> <a href='#' class='btn btn-success' data-toggle='modal'> <span>Chat</span></a>  </td > "
+                        + "   <td> <button type='button' id='chatModalbtn' data-custid= '" + item.CustID +"' class='btn btn-success' data-toggle='modal' data-target='chatModal'> <span>Chat</span></button>  </td > "
 
 
                         //+ "<td> <a href='#' class='btn btn-success' onclick='Acceptorder(" + item.ID + ")'> <span>Accept</span></a> <a href='#' class='btn btn-danger' onclick='Rejectorder(" + item.ID + ")'> <span>Reject</span></a></td> </tr>";

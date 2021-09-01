@@ -20,6 +20,8 @@ namespace Pandit_Application.Controllers
         // GET: Default
         public ActionResult Default()
         {
+            ViewBag.Name = Session["FullName"];
+            ViewBag.UserId = Session["CustomerID"];
             //Session["CustomerID"] = null;
             // var call = GetCall();
             // const string accountSid = "AC11082ad28e8d4a072bcd8233e97786bc";

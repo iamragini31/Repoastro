@@ -21,6 +21,7 @@ namespace Pandit_ApplicationEntity
        public string Received_Date { get; set; }
        public string Service { get; set; }
        public int ID { get; set; }
+       public int CustID { get; set; }
 
         public string orderid { get; set; }
 

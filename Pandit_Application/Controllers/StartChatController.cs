@@ -11,6 +11,8 @@ namespace Pandit_Application.Controllers
         // GET: StartChat
         public ActionResult Index()
         {
+          ViewBag.Name =  Session["FullName"];
+            ViewBag.UserId = Session["CustomerID"];
             return View();
         }
         public ActionResult StartChat()
