@@ -260,7 +260,6 @@
     <Compile Include="Models\RoomBodySettings.cs" />
     <Compile Include="Models\RoomBodySip.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Signalr\hubs\ChatHub.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -1733,6 +1732,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Signalr\hubs\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
