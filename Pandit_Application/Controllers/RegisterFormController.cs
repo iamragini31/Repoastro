@@ -14,6 +14,7 @@ namespace Pandit_Application.Controllers
         RegisterFormManager registerFormManger = new RegisterFormManager();
         RegisterFormModel registerFormModel = new RegisterFormModel();
         // GET: RegisterForm
+        //test 
         public ActionResult RegisterForm(string data)
         {
             string Bengali, English, urdu, Tamil, French, Spanish, German, Hindi, lang = "";
