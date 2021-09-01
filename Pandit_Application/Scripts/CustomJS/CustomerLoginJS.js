@@ -327,7 +327,7 @@ function validateEmaila() {
 
     }
     else {
-        alert("Please enter a valid email");
+    //    alert("Please enter a valid email");
     }
 }
 
