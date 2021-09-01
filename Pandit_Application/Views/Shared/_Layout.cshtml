@@ -35,118 +35,8 @@
     <script type="text/javascript" src="https://code.jquery.com/jquery-1.8.2.js"></script>
     <script src="https://apis.google.com/js/platform.js" async defer></script>
     <script type="text/javascript">
-        var OAUTHURL = 'https://accounts.google.com/o/oauth2/auth?';
-        var VALIDURL = 'https://www.googleapis.com/oauth2/v1/tokeninfo?access_token=';
-        var SCOPE = 'https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/userinfo.email';
-        /* https://www.googleapis.com/auth/userinfo.email */
-        var CLIENTID = '512080878411-lt3bsh15ond2690n59f19uospuuah9i8.apps.googleusercontent.com';
-        var REDIRECT = 'https://localhost:44341/DefaultHome/Default';
-        var LOGOUT = 'https://localhost:44341/DefaultHome/Default';
-        var TYPE = 'token';
-        var _url = OAUTHURL + 'scope=' + SCOPE + '&client_id=' + CLIENTID + '&redirect_uri=' + REDIRECT + '&response_type=' + TYPE;
-        var acToken;
-        var tokenType;
-        var expiresIn;
-        var user;
-        var loggedIn = false;
+   
 
-        function login() {
-            debugger
-            var win = window.open(_url, "windowname1", 'width=800, height=600');
-            var pollTimer = window.setInterval(function () {
-                try {
-                    console.log(win.document.URL);
-                    if (win.document.URL.indexOf(REDIRECT) != -1) {
-                        window.clearInterval(pollTimer);
-                        var url = win.document.URL;
-                        acToken = gup(url, 'access_token');
-                        tokenType = gup(url, 'token_type');
-                        expiresIn = gup(url, 'expires_in');
-
-                        win.close();
-                        debugger;
-                        validateToken(acToken);
-                    }
-                }
-                catch (e) {
-
-                }
-            }, 500);
-        }
-
-        function gup(url, name) {
-            namename = name.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");
-            var regexS = "[\\#&]" + name + "=([^&#]*)";
-            var regex = new RegExp(regexS);
-            var results = regex.exec(url);
-            if (results == null)
-                return "";
-            else
-                return results[1];
-        }
-
-        function validateToken(token) {
-            debugger
-            getUserInfo();
-            $.ajax(
-
-                {
-
-                    url: VALIDURL + token,
-                    data: null,
-                    success: function (responseText) {
-
-
-                    },
-
-                });
-
-        }
-
-        function getUserInfo() {
-            debugger
-
-            $.ajax({
-
-                url: 'https://www.googleapis.com/oauth2/v1/userinfo?access_token=' + acToken,
-                data: null,
-                success: function (resp) {
-                    debugger
-                    user = resp;
-                    console.log(user);
-                    alert('Welcome ' + user.name);
-                    //$('#uname').html('Welcome ' + user.name);
-                    //$('#uemail').html('Email: ' + user.email)
-                    $('#userimg').attr('src', user.picture);
-
-                    //$.ajax({
-
-                    //    url: '/Home/GoogleLogin/',
-
-                    //    type: 'POST',
-                    //    data: {
-                    //        email: user.email,
-                    //        name: user.name,
-                    //        gender: user.gender,
-                    //        lastname: user.lastname,
-                    //        location: user.location
-                    //    },
-                    //    success: function () {
-                    //        window.location.href = "/Home/Index/";
-                    //    },
-
-                        
-
-                    //});
-                },
-
-
-            })
-
-
-
-
-        }
 
     </script>
     @*<script src="~/Scripts/CustomJS/Call_Chat_FormJS.js"></script>*@
@@ -923,7 +813,7 @@
 
                                                         <p style="padding:5px;text-align:center">&nbsp; &nbsp;</p>
                                                         <h4 style="padding:0px;text-align:center;font-size:13px">--------- or ---------</h4>
-                                                        <button class="button" id="GoogleLogin" onclick="login()" style="margin-bottom: 15px; margin-left: 40%;text-transform:initial;	border: 1px solid #ff7e00;"><i class="fa fa-google-plus"></i></button>
+                                                        <button class="button" id="GoogleLogin" onclick="Gmaillogin()" style="margin-bottom: 15px; margin-left: 40%;text-transform:initial;	border: 1px solid #ff7e00;"><i class="fa fa-google-plus"></i></button>
                                                         <p style="padding:5px;text-align:center;    padding-bottom: 57px;">&nbsp; &nbsp;</p>
 
 
@@ -956,7 +846,7 @@
 
                                                         <p style="padding:17px;text-align:center">&nbsp; &nbsp;</p>
                                                         <h4 style="padding:0px;text-align:center;font-size:13px">--------- or ---------</h4>
-                                                        <button type="button" style="margin-bottom: 15px; margin-left: 40%;text-transform:initial;    border: 1px solid #ff9023;"><i class="fa fa-google-plus"></i></button>
+                                                        <button  class="button" id="GoogleRegister" onclick="GmailRegister()" type="button" style="margin-bottom: 15px; margin-left: 40%;text-transform:initial;    border: 1px solid #ff9023;"><i class="fa fa-google-plus"></i></button>
 
 
                                                         @*<h4 style="padding:0px;text-align:center"><i class="fa fa-facebook-official" style="color:#ff7e00;FONT-SIZE: 25PX;" aria-hidden="true"></i> &nbsp; <i class="fa fa-google-plus-square" style="color:#ff7e00;FONT-SIZE: 25PX;" aria-hidden="true"></i></h4>*@

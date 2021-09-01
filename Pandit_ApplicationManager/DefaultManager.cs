@@ -70,5 +70,48 @@ namespace Pandit_ApplicationManager
             }
             return res;
         }
+        public int saveCustomerGmail(string Fullname,  string email)
+        {
+            int res = 0;
+            SqlParameter p1 = new SqlParameter("@Fullname", Fullname);
+           
+            SqlParameter p3 = new SqlParameter("@Email", email);
+            SqlParameter flag = new SqlParameter("@Flag", '4');
+            try
+            {
+                res = clsDataAccess.ExecuteNonQuery(CommandType.StoredProcedure, "Sp_CustomerMaster", p1, p3, flag);
+            }
+            catch (Exception ex)
+            {
+
+            }
+            return res;
+
+        }
+        public DefaultModel Validateusergmail(string username)
+        {
+            DefaultModel model = new DefaultModel();
+            
+            SqlParameter p3 = new SqlParameter("@Email", username);
+            SqlParameter flag = new SqlParameter("@Flag", '5');
+
+            DataTable dt = new DataTable();
+            try
+            {
+                dt = clsDataAccess.ExecuteDataTable(CommandType.StoredProcedure, "Sp_CustomerMaster", p3, flag);
+                if (dt.Rows.Count > 0 && dt != null)
+                {
+                    model.CustomerID = Convert.ToInt32(dt.Rows[0]["Id"]);
+                    model.email = dt.Rows[0]["Email"].ToString();
+                    
+                    model.FullName = dt.Rows[0]["Fullname"].ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+            return model;
+        }
     }
 }

@@ -1372,6 +1372,7 @@
     <Content Include="js\enable\bootstrap.js" />
     <Content Include="js\enable\confo.js" />
     <Content Include="js\enable\EnxRtc.js" />
+    <Content Include="js\enable\EnxRtc2.js" />
     <Content Include="js\enable\EnxRtc1.js" />
     <Content Include="js\enable\index.js" />
     <Content Include="js\enable\jquery-3.2.1.min.js" />
