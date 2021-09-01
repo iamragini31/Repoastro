@@ -17,6 +17,8 @@ namespace Pandit_Application.Controllers
 
         public ActionResult ChatOrders()
         {
+            ViewBag.UserName = Session["UserName"];
+            ViewBag.UserId = Session["PanditID"];
             return View();
         }
         public ActionResult BindChat()
