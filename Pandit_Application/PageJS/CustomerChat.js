@@ -50,14 +50,14 @@
         }
     }
     // Show Title Alert
-    function ShowTitleAlert(newMessageTitle, pageTitle) {
-        if (document.title == pageTitle) {
-            document.title = newMessageTitle;
-        }
-        else {
-            document.title = pageTitle;
-        }
-    }
+    //function ShowTitleAlert(newMessageTitle, pageTitle) {
+    //    if (document.title == pageTitle) {
+    //        document.title = newMessageTitle;
+    //    }
+    //    else {
+    //        document.title = pageTitle;
+    //    }
+    //}
 
     function registerEvents(chatHub) {
 
@@ -191,6 +191,8 @@
             if (isActive !== "true") {
                 if (confirm(' ' + fromUserName + ' want to start the chat with you?')) {
                     isActive = "true";
+                    debugger;
+                    chatHub.server.notifyPandit(pid);
                     chatstart();
                 } else {
                     // Do nothing!

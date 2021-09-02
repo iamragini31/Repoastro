@@ -393,12 +393,13 @@
 <script>
     var timerVar2;
     var custid;
-    $(document).on('click', '#chatModalbtn', function () {
-        $('#chatModal').modal('show');
-        custid = $(this).data("custid");
+    var timerVar;
+    var pId;
+    var isActive;
+    function chatstart() {
         timerVar2;
         clearInterval(timerVar2);
-        timerVar2 = setInterval(countTimer, 1000);
+        timerVar = setInterval(countTimer, 1000);
         var totalSeconds = 0;
         function countTimer() {
             ++totalSeconds;
@@ -413,6 +414,32 @@
                 seconds = "0" + seconds;
             document.getElementById("timer").innerHTML = hour + ":" + minute + ":" + seconds;
         }
+    };
+    $(document).on('click', '#chatModalbtn', function () {
+        $('#divChatWindow').empty();
+        $('#timer').empty();
+        timerVar2;
+        clearInterval(timerVar);
+        $('#chatModal').modal('show');
+        custid = $(this).data("custid");
+
+        //timerVar2;
+        //clearInterval(timerVar2);
+        //timerVar2 = setInterval(countTimer, 1000);
+        //var totalSeconds = 0;
+        //function countTimer() {
+        //    ++totalSeconds;
+        //    var hour = Math.floor(totalSeconds / 3600);
+        //    var minute = Math.floor((totalSeconds - hour * 3600) / 60);
+        //    var seconds = totalSeconds - (hour * 3600 + minute * 60);
+        //    if (hour < 10)
+        //        hour = "0" + hour;
+        //    if (minute < 10)
+        //        minute = "0" + minute;
+        //    if (seconds < 10)
+        //        seconds = "0" + seconds;
+        //    document.getElementById("timer").innerHTML = hour + ":" + minute + ":" + seconds;
+        //}
     });
     var IntervalVal;
 
@@ -571,8 +598,9 @@
 
             }
         }
-
-
+        chatHub.client.invitationAccepted = function (fromUserName) {
+            chatstart();
+        }
         chatHub.client.sendPrivateMessage = function (windowId,pid, fromUserName, message, userimg, CurrentDateTime) {
 
             AddMessage(fromUserName, message, CurrentDateTime, userimg);
@@ -586,7 +614,7 @@
                 $("#MsgCountMain").html(msgcount);
                 $("#MsgCountMain").attr("title", msgcount + ' New Messages');
                 var Notification = 'New Message From ' + fromUserName;
-                IntervalVal = setInterval("ShowTitleAlert('SignalR Chat App', '" + Notification + "')", 800);
+                //IntervalVal = setInterval("ShowTitleAlert('SignalR Chat App', '" + Notification + "')", 800);
 
             }
    

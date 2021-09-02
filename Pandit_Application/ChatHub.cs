@@ -89,8 +89,12 @@ namespace Pandit_Application.Signalr.hubs
             }
             return base.OnDisconnected(stopCalled);
         }
-
-        public void SendPrivateMessage(string toUserId,string cid, string message)
+        public void NotifyPandit(string pid)
+        {
+            var pandit = ConnectedUsers.FirstOrDefault(x => x.UserId == pid);
+            Clients.Client(pandit.ConnectionId).invitationAccepted();
+        }
+            public void SendPrivateMessage(string toUserId,string cid, string message)
         {
             string fromUserId = Context.ConnectionId;
             var toUser = ConnectedUsers.FirstOrDefault(x =>  x.UserId == cid);
