@@ -13,7 +13,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Pandit_Application</RootNamespace>
     <AssemblyName>Pandit_Application</AssemblyName>
-    <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress />
@@ -55,6 +55,12 @@
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.IdentityModel.Logging, Version=1.1.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IdentityModel.Logging.1.1.2\lib\net451\Microsoft.IdentityModel.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Tokens, Version=5.1.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IdentityModel.Tokens.5.1.2\lib\net451\Microsoft.IdentityModel.Tokens.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Owin, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Owin.2.1.0\lib\net45\Microsoft.Owin.dll</HintPath>
     </Reference>
@@ -67,21 +73,24 @@
     <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
       <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
     </Reference>
-    <Reference Include="Razorpay">
-      <HintPath>..\..\..\Projects\Pandit_Projectver4_5\Pandit_Application\Pandit_Application\bin\Razorpay.dll</HintPath>
+    <Reference Include="Razorpay, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Razorpay.3.0.0\lib\net45\Razorpay.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.IdentityModel.Tokens.Jwt, Version=5.1.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IdentityModel.Tokens.Jwt.5.1.2\lib\net451\System.IdentityModel.Tokens.Jwt.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net" />
     <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
-    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Web.Routing" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Configuration" />
@@ -126,11 +135,14 @@
       <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System.Xml.Linq" />
-    <Reference Include="Twilio">
-      <HintPath>..\..\..\Projects\Pandit_Projectver4_5\Pandit_Application\Pandit_Application\bin\Twilio.dll</HintPath>
+    <Reference Include="Twilio, Version=5.65.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Twilio.5.65.0\lib\net451\Twilio.dll</HintPath>
     </Reference>
-    <Reference Include="Twilio.AspNet.Common">
-      <HintPath>..\..\..\Projects\Pandit_Projectver4_5\Pandit_Application\Pandit_Application\bin\Twilio.AspNet.Common.dll</HintPath>
+    <Reference Include="Twilio.AspNet.Common, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Twilio.AspNet.Common.5.37.2\lib\net45\Twilio.AspNet.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Twilio.AspNet.Mvc, Version=5.37.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Twilio.AspNet.Mvc.5.37.2\lib\net451\Twilio.AspNet.Mvc.dll</HintPath>
     </Reference>
     <Reference Include="WebGrease">
       <Private>True</Private>
@@ -145,6 +157,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="ChatHub.cs" />
     <Compile Include="Controllers\AddWalletMoneyController.cs" />
     <Compile Include="Controllers\AdminLoginController.cs" />
     <Compile Include="Controllers\AquariusController.cs" />
@@ -240,6 +253,7 @@
     <Compile Include="Controllers\TamilCalendarController.cs" />
     <Compile Include="Controllers\TaurusController.cs" />
     <Compile Include="Controllers\TeluguController.cs" />
+    <Compile Include="Controllers\TestController.cs" />
     <Compile Include="Controllers\TrailController.cs" />
     <Compile Include="Controllers\VerifiedPanditController.cs" />
     <Compile Include="Controllers\VirgoController.cs" />
@@ -260,7 +274,8 @@
     <Compile Include="Models\RoomBodySettings.cs" />
     <Compile Include="Models\RoomBodySip.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Signalr\hubs\ChatHub.cs" />
+    <Compile Include="Signalr\Messages.cs" />
+    <Compile Include="Signalr\Users.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -899,6 +914,8 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="css\animate.css" />
     <Content Include="css\bootstrap.css" />
+    <Content Include="css\chatstyle.css" />
+    <Content Include="css\emojionearea.min.css" />
     <Content Include="css\Enable\bootstrap.css" />
     <Content Include="css\Enable\confo.css" />
     <Content Include="css\Enable\core.css" />
@@ -1344,6 +1361,7 @@
     <Content Include="images\content\vastu\v4.jpg" />
     <Content Include="images\content\VedicB.jpg" />
     <Content Include="images\content\VedicBa.jpg" />
+    <Content Include="images\dummy.png" />
     <Content Include="images\header\astroho.png" />
     <Content Include="images\header\astrohofavi.png" />
     <Content Include="images\header\favicon.ico" />
@@ -1369,6 +1387,8 @@
     <Content Include="js\bootstrap.js" />
     <Content Include="js\custom.js" />
     <Content Include="js\custom2.js" />
+    <Content Include="js\date.format.js" />
+    <Content Include="js\emojionearea.js" />
     <Content Include="js\enable\bootstrap.js" />
     <Content Include="js\enable\confo.js" />
     <Content Include="js\enable\EnxRtc.js" />
@@ -1391,6 +1411,7 @@
     <Content Include="js\modernizr.js" />
     <Content Include="js\owl.carousel.js" />
     <Content Include="js\parallax.min.js" />
+    <Content Include="PageJS\CustomerChat.js" />
     <Content Include="PageJS\LoginJS.js" />
     <Content Include="PageJS\NewOrderJS.js" />
     <Content Include="PageJS\Package.js" />
@@ -1582,6 +1603,7 @@
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery.signalR-2.4.1.js" />
     <Content Include="Scripts\jquery.signalR-2.4.1.min.js" />
+    <Content Include="Scripts\jquery.slimscroll.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
@@ -1729,6 +1751,7 @@
     <Content Include="Views\OurStory\OurStory.cshtml" />
     <Content Include="Views\PricingPolicy\PricingPolicy.cshtml" />
     <Content Include="Views\RefundandCancellationPolicy\RefundandCancellationPolicy.cshtml" />
+    <Content Include="Views\Test\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
