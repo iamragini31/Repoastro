@@ -204,7 +204,7 @@ var muteUnmuteBtn = document.querySelector("#self_vMute");
                 }
                 // Active talkers handling
                 room.addEventListener("active-talkers-updated", function (event) {
-                    debugger
+                  
                     console.log("Active Talker List :- " + JSON.stringify(event));
                     var video_player_len = document.querySelector("#call_div").childNodes;
 
@@ -343,12 +343,19 @@ var muteUnmuteBtn = document.querySelector("#self_vMute");
                 });
                 // room disconnected notification
                 room.addEventListener("room-disconnected", function (streamEvent) {
-                    debugger
+                    
                     window.location.href ="/";
                 });
-
-                room.addEventListener('user-connected', function (evnt) {
+              
+                room.addEventListener('dial-state-events', function (evnt) {
                     debugger
+                    if (evnt.message.state == "connected") {
+                        display_c();
+                    }
+                });
+                debugger
+                room.addEventListener('user-connected', function (evnt) {
+                    
                     clientid = evnt.clientId;
                    /* console.log(evnt.clientId);*/
                     let role = evnt.role;
@@ -571,7 +578,7 @@ var muteUnmuteBtn = document.querySelector("#self_vMute");
         muteUnmuteBtn.style.pointerEvents = "auto";
     }
 function videoMute() {
-    debugger
+  
         muteUnmuteBtn.style.cursor = "wait";
         muteUnmuteBtn.style.pointerEvents = "none";
         muteUnmuteBtn.disabled = true;
@@ -665,11 +672,11 @@ function updateChatHeight() {
 
 
 function createcall() {
-    debugger
+  
     var mobileno = $("#hdnMobile").val();
 
     room.makeOutboundCall(mobileno, '12028528186', function (resp) {
-        debugger
+       
       /*  console.log(JSON.stringify(resp));*/
        
 
@@ -717,7 +724,7 @@ var finaltime = 0;
 var hdncharges_call_per_minu = 0;
 var moneydeducted = 0;
 function display_c() {
-    
+    debuggers
      hdncharges_call_per_minu = $("#hdncharges_call_per_minu").val();
     var hdnCustomerwalletamount = $("#hdnCustomerwalletamount").val();
     var time = hdnCustomerwalletamount / hdncharges_call_per_minu;
@@ -730,13 +737,13 @@ function display_c() {
 }
 
 function display_t(moneydeducted) {
-
+    debugger
     var refresh = 1000; // Refresh rate in milli seconds
     mytime = setTimeout('display_ct(' + 1000 + ',' + moneydeducted+')', refresh)
 }
 
 function display_ct(time, moneydeducted) {
-    
+    debugger
     tottime = tottime - time;
     if (tottime > 0) {
         display_t();

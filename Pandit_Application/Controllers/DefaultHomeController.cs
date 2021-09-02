@@ -98,5 +98,32 @@ namespace Pandit_Application.Controllers
             Session["Wallet"] = Walletamt;
             return Json(Walletamt, JsonRequestBehavior.AllowGet);
         }
+        public ActionResult SaveCustomerGmail(string email, string name)
+        {
+            int res = defaultmanager.saveCustomerGmail(name,  email); ;
+
+            return Json(res, JsonRequestBehavior.AllowGet);
+        }
+        public ActionResult GoogleLogin(string email,string name)
+        {
+            int id = 0;
+            var res = defaultmanager.Validateusergmail(email);
+            if (res.email == "" || res.email == null)
+            {
+                id = res.CustomerID;
+            }
+            else
+            {
+                Session["CustomerID"] = res.CustomerID;
+                id = res.CustomerID;
+                Session["FullName"] = res.FullName;
+
+                var Walletamt = defaultmanager.GetWalletamount(res.CustomerID);
+                Session["Wallet"] = Walletamt;
+
+            }
+
+            return Json(res, JsonRequestBehavior.AllowGet);
+        }
     }
 }

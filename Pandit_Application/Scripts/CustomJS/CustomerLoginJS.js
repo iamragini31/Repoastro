@@ -1,4 +1,18 @@
-﻿$(document).ready(function () {
+﻿var OAUTHURL = 'https://accounts.google.com/o/oauth2/auth?';
+var VALIDURL = 'https://www.googleapis.com/oauth2/v1/tokeninfo?access_token=';
+var SCOPE = 'https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/userinfo.email';
+/* https://www.googleapis.com/auth/userinfo.email */
+var CLIENTID = '512080878411-lt3bsh15ond2690n59f19uospuuah9i8.apps.googleusercontent.com';
+var REDIRECT = 'https://localhost:44341/DefaultHome/Default';
+var LOGOUT = 'https://localhost:44341/DefaultHome/Default';
+var TYPE = 'token';
+var _url = OAUTHURL + 'scope=' + SCOPE + '&client_id=' + CLIENTID + '&redirect_uri=' + REDIRECT + '&response_type=' + TYPE;
+var acToken;
+var tokenType;
+var expiresIn;
+var user;
+var loggedIn = false;
+$(document).ready(function () {
     debugger
     getamt();
     var tabcontent = $("#hdnFullName").val();
@@ -313,6 +327,220 @@ function validateEmaila() {
 
     }
     else {
-        alert("Please enter a valid email");
+    //    alert("Please enter a valid email");
     }
+}
+
+
+function Gmaillogin() {
+    debugger
+    var win = window.open(_url, "windowname1", 'width=800, height=600');
+    var pollTimer = window.setInterval(function () {
+        try {
+            console.log(win.document.URL);
+            if (win.document.URL.indexOf(REDIRECT) != -1) {
+                window.clearInterval(pollTimer);
+                var url = win.document.URL;
+                acToken = gup(url, 'access_token');
+                tokenType = gup(url, 'token_type');
+                expiresIn = gup(url, 'expires_in');
+
+                win.close();
+                
+                validateTokenlogin(acToken);
+            }
+        }
+        catch (e) {
+
+        }
+    }, 500);
+}
+
+function GmailRegister() {
+    debugger
+    var win = window.open(_url, "windowname1", 'width=800, height=600');
+    var pollTimer = window.setInterval(function () {
+        try {
+            console.log(win.document.URL);
+            if (win.document.URL.indexOf(REDIRECT) != -1) {
+                window.clearInterval(pollTimer);
+                var url = win.document.URL;
+                acToken = gup(url, 'access_token');
+                tokenType = gup(url, 'token_type');
+                expiresIn = gup(url, 'expires_in');
+
+                win.close();
+                
+                validateTokenregister(acToken);
+            }
+        }
+        catch (e) {
+
+        }
+    }, 500);
+}
+function gup(url, name) {
+    namename = name.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");
+    var regexS = "[\\#&]" + name + "=([^&#]*)";
+    var regex = new RegExp(regexS);
+    var results = regex.exec(url);
+    if (results == null)
+        return "";
+    else
+        return results[1];
+}
+
+function validateTokenlogin(token) {
+    debugger
+    getUserInfologin();
+    $.ajax(
+
+        {
+
+            url: VALIDURL + token,
+            data: null,
+            success: function (responseText) {
+
+
+            },
+
+        });
+
+}
+function validateTokenregister(token) {
+    debugger
+    getUserInforegister();
+    $.ajax(
+
+        {
+
+            url: VALIDURL + token,
+            data: null,
+            success: function (responseText) {
+
+
+            },
+
+        });
+
+}
+function getUserInfologin() {
+    debugger
+
+    $.ajax({
+
+        url: 'https://www.googleapis.com/oauth2/v1/userinfo?access_token=' + acToken,
+        data: null,
+        success: function (resp) {
+            debugger
+            user = resp;
+          
+            
+            //$('#uname').html('Welcome ' + user.name);
+            //$('#uemail').html('Email: ' + user.email)
+       
+
+            $.ajax({
+
+                url: '/DefaultHome/GoogleLogin/',
+
+                type: 'POST',
+                data: {
+                    email: user.email,
+                    name: user.name
+                },
+                success: function (response) {
+                    if (response.CustomerID != 0) {
+                        var Fullname = response.FullName;
+                        $("#FullName").text(Fullname);
+                        $('#userimg').attr('src', user.picture);
+
+                        //$("#Modal").hide();
+                        //$("#Userbtn").show();
+
+
+                        $("#loginid").val("");
+                        $("#loginpassword").val("");
+                        //alert("Login Successfull");
+                        //window.location.href="/DefaultHome/Default"
+                        window.location.reload();
+                    }
+                    else {
+                        $("#loginid").val("");
+                        $("#loginpassword").val("");
+                        alert("User not found");
+
+
+                    }
+                    /*window.location.href = "/Home/Index/";*/
+                },
+
+
+
+            });
+        },
+
+
+    })
+
+
+
+
+}
+
+function getUserInforegister() {
+    debugger
+
+    $.ajax({
+
+        url: 'https://www.googleapis.com/oauth2/v1/userinfo?access_token=' + acToken,
+        data: null,
+        success: function (resp) {
+            debugger
+            user = resp;
+           
+            
+            //$('#uname').html('Welcome ' + user.name);
+            //$('#uemail').html('Email: ' + user.email)
+            $('#userimg').attr('src', user.picture);
+
+            $.ajax({
+
+                url: '/DefaultHome/SaveCustomerGmail/',
+
+                type: 'POST',
+                data: {
+                    email: user.email,
+                    name: user.name
+                },
+                success: function (response) {
+                    debugger
+                    if (response !== 0 && response > 0) {
+                        //$scope.StudentRegID = response;
+                        alert("Registration successful. Login with  Gmail.");
+                        //clearform();
+                        //window.location.href = "/DefaultHome/Default";
+                        window.location.reload();
+                        //$scope.goToTab(2);
+                    }
+                    else {
+
+                        alert("Customer Not Registered.");
+                        //window.location.href = "/DefaultHome/Default";
+                        window.location.reload();
+                        //clearform();
+                    }
+                },
+
+
+
+            });
+        },
+
+
+    })
+
+
+
+
 }
