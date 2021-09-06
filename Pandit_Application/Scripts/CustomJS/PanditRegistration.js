@@ -229,6 +229,10 @@ function GetSpeciDetails(i) {
         specialist = Spec;
     }
 }
+function ValidateIt() {
+    debugger
+    return true;
+}
 function Submit() {
 
     debugger
@@ -331,126 +335,149 @@ function Submit() {
     }
     debugger
     var email = document.getElementById("txtEmail").value;
-   
-    var expr = /^([\w-\.]+)@@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
-    if (!expr.test(email)) {
-         alert( "Invalid email address.");
-    }
+    var chkemail ;
+    $.ajax({
+        url: "/PanditRegistration/Checkemail/",
+        type: "GET",
+        data: {
+            'emailAddress': email
+        },
+        contentType: "application/json",
+        dataType: "json",
+        success: function (Res) {
+            debugger
+            if (Res == false) {
+                alert("Invalid Email")
+                
 
-    else {
-        if (Fullname == "" || Fullname == undefined) {
-            alert("Enter Full Name");
-            return false;
-        }
-        else if (countrycode == "Select") {
-            alert("Select Country Code")
-        }
-        else if (Mobile == "" || Mobile == undefined) {
-            alert("Enter Mobile");
-            return false;
-        }
-
-        //else if (Email == "" || Email == undefined) {
-        //    alert("Enter Email");
-        //    return false;
-        //}
-        else if (gender == "Select") {
-            alert("Select Gender");
-            return false;
-        }
-        else if (Day == "0") {
-            alert("Select Date of Birth");
-            return false;
-        }
-        else if (Month == "0") {
-            alert("Select Month of Birth");
-            return false;
-        }
-        else if (year == "Year") {
-            alert("Select Year of Birth");
-            return false;
-        }
-        else if (YearofExperience == "" || YearofExperience == undefined) {
-            alert("Enter Year of Experience");
-            return false;
-        }
-        else if (Address == "" || Address == undefined) {
-            alert("Enter Address");
-            return false;
-        }
-        else if (City == "" || City == undefined) {
-            alert("Enter City");
-            return false;
-        }
-        else if (State == "" || State == undefined) {
-            alert("Enter State");
-            return false;
-        }
-        else if (Country == "" || Country == undefined) {
-            alert("Enter Country");
-            return false;
-        }
-        else if (Zip == "" || Zip == undefined) {
-            alert("Enter Zip Code");
-            return false;
-        }
-        else if (language == "" || language == undefined || language == null) {
-            alert("Select Atleast One language");
-            return false;
-        }
-        else if (specialist == "" || specialist == undefined || specialist == null) {
-            alert("Select atleast One Specialization");
-            return false;
-        }
-        else if (filePath == "" || filePath == undefined) {
-            alert("Upload Profile Picture");
-        }
-        else if (filePath1 == "" || filePath1 == undefined) {
-            alert("Upload ID Proof");
-        }
-        //else if (filePath2 == "" || filePath2 == undefined) {
-        //    alert("Choose Bio Data");
-        //}
-        else if (aboutself == "" || aboutself == undefined) {
-            alert("Write About Yourself");
-            return false;
-        }
-        else {
-
-        $.ajax({
-            url: "/PanditRegistration/RegistrationPandit",
-            type: "POST",
-            contentType: false,
-            processData: false,
-            data: formdata,
-            success: function (response) {
-                debugger
-                if (response !== 0 && response > 0) {
-                    //$scope.StudentRegID = response;
-                    alert("Thank you for registering. We will get back to you within 3-5 days with further instructions.");
-                    //clearform();
-                    window.location.href = "/DefaultHome/Default";
-                    //$scope.goToTab(2);
+            }
+            else {
+                if (Fullname == "" || Fullname == undefined) {
+                    alert("Enter Full Name");
+                    return false;
                 }
-                else if (response == 0) {
-                    alert("This email id is already registered, log in");
-                    window.location.href = "/DefaultHome/Default";
+                else if (countrycode == "Select") {
+                    alert("Select Country Code")
+                }
+                else if (Mobile == "" || Mobile == undefined) {
+                    alert("Enter Mobile");
+                    return false;
+                }
+
+                //else if (Email == "" || Email == undefined) {
+                //    alert("Enter Email");
+                //    return false;
+                //}
+                else if (gender == "Select") {
+                    alert("Select Gender");
+                    return false;
+                }
+                else if (Day == "0") {
+                    alert("Select Date of Birth");
+                    return false;
+                }
+                else if (Month == "0") {
+                    alert("Select Month of Birth");
+                    return false;
+                }
+                else if (year == "Year") {
+                    alert("Select Year of Birth");
+                    return false;
+                }
+                else if (YearofExperience == "" || YearofExperience == undefined) {
+                    alert("Enter Year of Experience");
+                    return false;
+                }
+                else if (Address == "" || Address == undefined) {
+                    alert("Enter Address");
+                    return false;
+                }
+                else if (City == "" || City == undefined) {
+                    alert("Enter City");
+                    return false;
+                }
+                else if (State == "" || State == undefined) {
+                    alert("Enter State");
+                    return false;
+                }
+                else if (Country == "" || Country == undefined) {
+                    alert("Enter Country");
+                    return false;
+                }
+                else if (Zip == "" || Zip == undefined) {
+                    alert("Enter Zip Code");
+                    return false;
+                }
+                else if (language == "" || language == undefined || language == null) {
+                    alert("Select Atleast One language");
+                    return false;
+                }
+                else if (specialist == "" || specialist == undefined || specialist == null) {
+                    alert("Select atleast One Specialization");
+                    return false;
+                }
+                else if (filePath == "" || filePath == undefined) {
+                    alert("Upload Profile Picture");
+                }
+                else if (filePath1 == "" || filePath1 == undefined) {
+                    alert("Upload ID Proof");
+                }
+                //else if (filePath2 == "" || filePath2 == undefined) {
+                //    alert("Choose Bio Data");
+                //}
+                else if (aboutself == "" || aboutself == undefined) {
+                    alert("Write About Yourself");
+                    return false;
+                }
+
+                else if (ValidateIt() == true) {
+                    document.getElementById('oneclick').disabled = true;
+                    document.getElementById("oneclick").style.backgroundColor = "#ffb568";
+                    document.getElementById("oneclick").style.color = "white";
                 }
                 else {
 
-                    alert("Error Occured");
-                    window.location.href = "/DefaultHome/Default";
-                    //clearform();
+                    $.ajax({
+                        url: "/PanditRegistration/RegistrationPandit",
+                        type: "POST",
+                        contentType: false,
+                        processData: false,
+                        data: formdata,
+                        success: function (response) {
+                            debugger
+                            if (response !== 0 && response > 0) {
+                                //$scope.StudentRegID = response;
+                                alert("Thank you for registering. We will get back to you within 3-5 days with further instructions.");
+                                //clearform();
+                                window.location.href = "/DefaultHome/Default";
+                                //$scope.goToTab(2);
+                            }
+                            else if (response == 0) {
+                                alert("This email id is already registered, log in");
+                                window.location.href = "/DefaultHome/Default";
+                            }
+                            else {
+
+                                alert("Error Occured");
+                                window.location.href = "/DefaultHome/Default";
+                                //clearform();
+                            }
+                        },
+                        error: function (err) {
+
+                        }
+                    });
+
                 }
-            },
-            error: function (err) {
 
             }
-        });
-
         }
 
-    }
+    });
+    
+
+
+
 }
 function checkFile() {
 
@@ -611,11 +638,33 @@ function validateEmail() {
   
     var email = document.getElementById("txtEmail").value;
 
-    var expr = /^([\w-\.]+)@@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
-    if (!expr.test(email)) {
-        alert("Invalid email address.");
-    }
-    else {
+    //var expr = /^([\w-\.]+)@@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
+    //if (!expr.test(email)) {
+    //    alert("Invalid email address.");
+    //}
+    //else {
         
+    //}
+    $.ajax({
+        url: "/PanditRegistration/Checkemail/",
+        type: "GET",
+        data: {
+            'emailAddress': email
+        },
+        contentType: "application/json",
+        dataType: "json",
+        success: function (Res) {
+
+            if (Res == false) {
+                alert("Invalid Email")
+    }
+        }
+
+    });
+}
+function Checknumber() {
+    var mobile = $("#txtmobile").val();
+    if (mobile.length < 10) {
+        alert("Enter valid mobile number");
     }
 }

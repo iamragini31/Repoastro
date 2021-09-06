@@ -4,6 +4,9 @@
     ViewBag.Title = "ProfileCustomer";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<script src="~/Scripts/CustomJS/CustomerLoginJS.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <style>
     img {
         border-radius: 50%;
@@ -17,8 +20,30 @@
         width: 55%;
         padding-bottom: 10px
     }
-    a:hover{
-        cursor:pointer;
+
+    a:hover {
+        cursor: pointer;
+    }
+
+    button {
+        font-size: 16px;
+        text-align: left;
+        float: left;
+        color: #1a0dab;
+    }
+
+        button:hover {
+            background: none;
+        }
+
+    .w3-black, .w3-hover-black:hover {
+        color: #413dae !important;
+        background-color: #fff !important;
+    }
+
+    .w3-black, .w3-hover-black {
+        color: #413dae !important;
+        background-color: #fff !important;
     }
 </style>
 
@@ -47,14 +72,33 @@
 <!-- hs sidebar Start -->
 <div class="hs_blog_categories_main_wrapper">
     <div class="container">
+        <div class="w3-container">
+
+            <div id="id01" class="w3-modal">
+                <div class="w3-modal-content">
+                    <div class="w3-container">
+                        <span onclick="document.getElementById('id01').style.display='none'" class="w3-button w3-display-topright">&times;</span>
+                        <p style="padding: 40px 20px 0px;">
+                            We are sorry to see you go!If you choose to delete your account you wont be able to retrieve any saved
+                            information or report or reopen your account and also you will loose the balance, if any, in your wallet, Are you sure you want to delete your account.
+                        </p>
+                        <div class="hs_contact_indx_form_btn" style="padding-bottom:40px">
+                            <ul>
+                                <li><a typeof="button" onclick="deleteconfirmation()" style="font-size:16px">Delete</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="row">
 
             <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                 <div class="hs_vs_first_sec_wrapper">
 
                     <h2>
-                        Smith jay prakash chturvedi       
-                        <a href="/CustomerProfileForm/CustomerProfileForm" style="float:right">Edit</a>
+                        Smith jay prakash chturvedi
+                        <a href="/CustomerProfileForm/CustomerProfileForm" style="font-size:16px;text-align:left;float:right;color:#1a0dab">Edit</a>
                     </h2>
                     @*<p>Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit. Nam nec tellus.</p>*@
                     <table>
@@ -110,6 +154,20 @@
                             <td>mahtab@gmail.com</td>
 
                         </tr>
+                        <tr>
+                            <td>
+                            </td>
+                        </tr>
+                        <tr>
+                            @*<td>
+                                    <a href="/DeleteAccount/DeleteAccount" style="font-size:16px;text-align:left;float:left;color:#1a0dab">Delete your account</a>
+                                </td>*@
+                            <td>
+                                <button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-black" style="background-color:white;color:white">Delete my account</button>
+
+                            </td>
+
+                        </tr>
 
 
                     </table>
@@ -117,7 +175,6 @@
             </div>
             <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                 <div class="hs_vs_first_sec_wrapper">
-                    <a href="/ChangePassword/ChangePassword" style="float:right">Change Password</a>
 
                     @*<h2>Smith jay prakash chturvedi</h2>*@
                     @*<p>Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit. Nam nec tellus.</p>*@
@@ -133,8 +190,11 @@
                             </td>
 
                         </tr>
-
-
+                        <tr>
+                            <td>
+                                <a href="/ChangePassword/ChangePassword" style="font-size:16px;text-align:left;float:left;color:#1a0dab">Change Password</a>
+                            </td>
+                        </tr>
 
                     </table>
                 </div>
@@ -152,20 +212,28 @@
                 </div>
             </div>
             <div class="hs_contact_indx_form_btn" style="margin-top:24px;padding-left:14px">
-                <a href="/DeleteAccount/DeleteAccount" style="font-size:16px;text-align:left;float:left;color:#1a0dab">Delete your account</a>
 
             </div>
             @*<div class="hs_contact_indx_form_btn">
-                <ul>
-                    <li><a href="/CustomerProfileForm/CustomerProfileForm" onclick="#" style="font-size:16px">Edit</a></li>
-                </ul>
-            </div>*@
+                    <ul>
+                        <li><a href="/CustomerProfileForm/CustomerProfileForm" onclick="#" style="font-size:16px">Edit</a></li>
+                    </ul>
+                </div>*@
 
         </div>
+    </div>
+
+
 </div>
-            
+<script>
 
-        </div>
-    
+    //function deleteconfirmation() {
+    //    debugger
+    //    var r = confirm("Are you sure you want to delete your account?")
+    //    if (r == true) {
+    //        window.location.href = "/DefaultHome/Default"
+    //    }
+    //}
+</script>
 
 <!-- hs sidebar End -->

@@ -13,7 +13,8 @@
 
     <!-- Template CSS -->
     <link rel="stylesheet" href="~/assets/css/style-starter.css">
-
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" />
+    <link rel="stylesheet" href="css/style.css" />
     <!-- google fonts -->
     <link href="//fonts.googleapis.com/css?family=Nunito:300,400,600,700,800,900&display=swap" rel="stylesheet">
     <style>
@@ -31,6 +32,7 @@
             color: #f1f1f1;
             box-shadow: 0px 1px 20px 0px rgba(255, 136, 14, 1);
         }
+
         .modal-contents {
             border: 1px solid #ff7e00;
             padding: 6%;
@@ -42,6 +44,13 @@
             margin-bottom: 6%;
             min-height: 262px;
             margin: 3px;
+        }
+        form i {
+            margin-left: -30px;
+            cursor: pointer;
+            top: -38px;
+            left: 100%;
+            position: relative;
         }
     </style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -85,12 +94,16 @@
                                 @Html.TextBoxFor(model => model.UserName, new { @id = "UserName", @class = "form-control login_text_field_bg input-style", })
                             </div>
                             <div class="form-group">
-                                <label for="exampleInputPassword1" class="input__label">Password</label>
-                                @*<input type="password" class="form-control login_text_field_bg input-style"id="exampleInputPassword1" placeholder="" required>*@
-                                @Html.TextBoxFor(model => model.Password, new { @id = "Password", @class = "form-control login_text_field_bg input-style", @type = "password" })
+                                <p>
+                                    <label for="exampleInputPassword1" class="input__label">Password</label>
+
+                                    @*<input type="password" class="form-control login_text_field_bg input-style"id="exampleInputPassword1" placeholder="" required>*@
+                                    @Html.TextBoxFor(model => model.Password, new { @id = "Password", @class = "form-control login_text_field_bg input-style", @type = "password" })
+                                    <i class="bi bi-eye-slash" id="togglePassword"></i>
+                                </p>
                                 <a href="/ForgetPass/ForgetPass" class="back" style="float:right;font-size:14px;padding-top:5px;color:#1a0dab">
                                     @*<i class="fa fa-chevron-left"
-                                aria-hidden="true"></i>*@
+            aria-hidden="true"></i>*@
                                     Forgot Password ?
                                 </a>
                             </div>
@@ -129,4 +142,15 @@
         </div>
 </body>
 </html>
+<script>
+    const togglePassword = document.querySelector('#togglePassword');
+    const password = document.querySelector('#Password');
+    togglePassword.addEventListener('click', function (e) {
+        // toggle the type attribute
+        const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+        password.setAttribute('type', type);
+        // toggle the eye / eye slash icon
+        this.classList.toggle('bi-eye');
+    });
+</script>
 

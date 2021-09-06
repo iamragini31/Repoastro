@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Pandit_ApplicationEntity.ChattoSpecialistModel>
+﻿    @model IEnumerable<Pandit_ApplicationEntity.ChattoSpecialistModel>
 
 @{
     ViewBag.Title = "ChattoSpecialist";
@@ -188,8 +188,10 @@
                                 <li class="aries_padding_left">
                                     <select onchange="location = this.value;">
                                         @*<option>Sort by</option>*@
-                                        <option value="#">Price- High to Low</option>
-                                        <option value="#">Price- Low to High</option>
+                                        <option value="#">Price - Low to high</option>
+                                        <option value="#">Price - High to low</option>
+                                        <option value="#">Experience - Low to high</option>
+                                        <option value="#">Experience - High to low</option>
 
 
                                     </select>

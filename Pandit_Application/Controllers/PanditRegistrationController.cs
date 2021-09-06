@@ -396,6 +396,17 @@ namespace Pandit_Application.Controllers
             return Json(res, JsonRequestBehavior.AllowGet);
         }
 
-
+        public ActionResult Checkemail(string emailAddress)
+        {
+            bool chk = false;
+             chk = IsValidEmailAddress(emailAddress);
+            return Json(chk, JsonRequestBehavior.AllowGet);
+        }
+        private static bool IsValidEmailAddress(string emailAddress)
+        {
+            return new System.ComponentModel.DataAnnotations
+                                .EmailAddressAttribute()
+                                .IsValid(emailAddress);
+        }
     }
 }

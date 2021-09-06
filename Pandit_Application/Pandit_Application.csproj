@@ -164,6 +164,8 @@
     <Compile Include="Controllers\AquariusController.cs" />
     <Compile Include="Controllers\AriesController.cs" />
     <Compile Include="Controllers\BengaliCalendarController.cs" />
+    <Compile Include="Controllers\BlogDetailsController.cs" />
+    <Compile Include="Controllers\BlogListController.cs" />
     <Compile Include="Controllers\BookingFormController.cs" />
     <Compile Include="Controllers\CalendarController.cs" />
     <Compile Include="Controllers\CallCustomerController.cs" />
@@ -1129,13 +1131,37 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="images\content\about\aquarius1.jpg" />
+    <Content Include="images\content\about\aquarius2.jpg" />
+    <Content Include="images\content\about\aries1.jpg" />
+    <Content Include="images\content\about\aries2.jpg" />
     <Content Include="images\content\about\astro_img1.jpg" />
     <Content Include="images\content\about\astro_img2.jpg" />
     <Content Include="images\content\about\astro_img3.jpg" />
     <Content Include="images\content\about\astro_img4.jpg" />
+    <Content Include="images\content\about\cancer1.jpg" />
+    <Content Include="images\content\about\cancer2.jpg" />
+    <Content Include="images\content\about\capricorn1.jpg" />
+    <Content Include="images\content\about\capricorn2.jpg" />
+    <Content Include="images\content\about\gemini1.jpg" />
+    <Content Include="images\content\about\gemini2.jpg" />
+    <Content Include="images\content\about\leo1.jpg" />
+    <Content Include="images\content\about\leo2.jpg" />
+    <Content Include="images\content\about\libra1.jpg" />
+    <Content Include="images\content\about\libra2.jpg" />
     <Content Include="images\content\about\pgress_img.jpg" />
+    <Content Include="images\content\about\pisces1.jpg" />
+    <Content Include="images\content\about\pisces2.jpg" />
     <Content Include="images\content\about\play_icon.png" />
+    <Content Include="images\content\about\sagittarius1.jpg" />
+    <Content Include="images\content\about\sagittarius2.jpg" />
+    <Content Include="images\content\about\scorpio1.jpg" />
+    <Content Include="images\content\about\scorpio2.jpg" />
+    <Content Include="images\content\about\taurus1.jpg" />
+    <Content Include="images\content\about\taurus2.jpg" />
     <Content Include="images\content\about\video_img.jpg" />
+    <Content Include="images\content\about\virgo1.jpg" />
+    <Content Include="images\content\about\virgo2.jpg" />
     <Content Include="images\content\about_bg.jpg" />
     <Content Include="images\content\about_img.jpg" />
     <Content Include="images\content\advert_bg.jpg" />
@@ -1754,6 +1780,9 @@
     <Content Include="Views\PricingPolicy\PricingPolicy.cshtml" />
     <Content Include="Views\RefundandCancellationPolicy\RefundandCancellationPolicy.cshtml" />
     <Content Include="Views\Test\Index.cshtml" />
+    <Content Include="Views\BlogDetails\BlogDetails.cshtml" />
+    <Content Include="Views\BlogList\BlogList.cshtml" />
+    <Content Include="Views\ChangePassword\ChangePassword.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

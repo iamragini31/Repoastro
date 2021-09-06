@@ -4,6 +4,60 @@
     ViewBag.Title = "Zodiac";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<style>
+    /*input[type="text"] {
+            width: 4em;
+            margin: .5em 0 0 0;
+            padding: .5em;
+        }
+
+        label {
+            display: block;
+        }*/
+    .modal-contents {
+        border: 1px solid #ff7e00;
+        padding: 6%;
+        border-radius: 3px;
+        z-index: 999999;
+        opacity: 999999;
+        box-shadow: 0 2px 16px 0 #ff7e00;
+        border-radius: 6px;
+        margin-bottom: 6%;
+        min-height: 92vw;
+        margin: 3px;
+    }
+
+    label {
+        font-weight: normal;
+    }
+
+    .button {
+        background-color: #ff880e;
+        border: 1px solid #ff880e;
+        color: white;
+        padding: 16px 32px;
+        text-align: center;
+        font-size: 16px;
+        margin: 4px 2px;
+        /*opacity: 0.6;*/
+        transition: 0.3s;
+        display: inline-block;
+        text-decoration: none;
+        cursor: pointer;
+        line-height: 20px;
+        text-transform: uppercase;
+        border-radius: 50px;
+        width: 235px;
+        height: 50px;
+    }
+
+        .button:hover {
+            opacity: 1;
+            background-color: #fff;
+            color: #ff7e00;
+            border: 1px solid #ff880e;
+        }
+</style>
 <!-- hs About Title Start -->
 <div class="hs_indx_title_main_wrapper">
     <div class="hs_title_img_overlay"></div>
@@ -25,19 +79,154 @@
         </div>
     </div>
 </div>
+<div class="hs_sign_main_wrapper" style="">
+    <div class="container">
+        <div class="modal-contents" style="">
+
+            @*<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="hs_kd_first_sec_wrapper hs_ar_third_sec_heading_wrapper">
+                        <h2>Your Daily Tarot Reading</h2>
+                        <h4><span></span></h4>
+                    </div>
+                </div>*@
+            <a href="/Aries/Aries">
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                    <div class="hs_ar_third_sec_title_img">
+                        <img src="~/images/content/about/aries1.jpg" alt="ar_img">
+                        @*<ul>
+                                <li><a href="#">Family</a></li>
+                            </ul>*@
+                    </div>
+                </div>
+            </a>
+            <a href="/Taurus/Taurus">
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                    <div class="hs_ar_third_sec_title_img">
+                        <img src="~/images/content/about/taurus1.jpg" alt="ar_img">
+                        @*<ul>
+                                <li><a href="#">Family</a></li>
+                            </ul>*@
+                    </div>
+                </div>
+            </a>
+            <a href="/Gemini/Gemini">
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                    <div class="hs_ar_third_sec_title_img">
+                        <img src="~/images/content/about/gemini1.jpg" alt="ar_img">
+                        @*<ul>
+                                <li><a href="#">Family</a></li>
+                            </ul>*@
+                    </div>
+                </div>
+            </a>
+            <a href="/Cancer/Cancer">
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                    <div class="hs_ar_third_sec_title_img">
+                        <img src="~/images/content/about/cancer1.jpg" alt="ar_img">
+                        @*<ul>
+                                <li><a href="#">Family</a></li>
+                            </ul>*@
+                    </div>
+                </div>
+            </a>
+            <a href="/Leo/Leo">
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                    <div class="hs_ar_third_sec_title_img">
+                        <img src="~/images/content/about/leo1.jpg" alt="ar_img">
+                        @*<ul>
+                                <li><a href="#">Family</a></li>
+                            </ul>*@
+                    </div>
+                </div>
+            </a>
+            <a href="/Virgo/Virgo">
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                    <div class="hs_ar_third_sec_title_img">
+                        <img src="~/images/content/about/virgo1.jpg" alt="ar_img">
+                        @*<ul>
+                                <li><a href="#">Family</a></li>
+                            </ul>*@
+                    </div>
+                </div>
+            </a>
+            <a href="/Libra/Libra">
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                    <div class="hs_ar_third_sec_title_img">
+                        <img src="~/images/content/about/libra1.jpg" alt="ar_img">
+                        @*<ul>
+                                <li><a href="#">Family</a></li>
+                            </ul>*@
+                    </div>
+                </div>
+            </a>
+            <a href="/Scorpio/Scorpio">
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                    <div class="hs_ar_third_sec_title_img">
+                        <img src="~/images/content/about/scorpio1.jpg" alt="ar_img">
+                        @*<ul>
+                                <li><a href="#">Family</a></li>
+                            </ul>*@
+                    </div>
+                </div>
+            </a>
+            <a href="/Sagittarius/Sagittarius">
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                    <div class="hs_ar_third_sec_title_img">
+                        <img src="~/images/content/about/sagittarius1.jpg" alt="ar_img">
+                        @*<ul>
+                                <li><a href="#">Family</a></li>
+                            </ul>*@
+                    </div>
+                </div>
+            </a>
+            <a href="/Capricorn/Capricorn">
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                    <div class="hs_ar_third_sec_title_img">
+                        <img src="~/images/content/about/capricorn1.jpg" alt="ar_img">
+                        @*<ul>
+                                <li><a href="#">Family</a></li>
+                            </ul>*@
+                    </div>
+                </div>
+            </a>
+            <a href="/Aquarius/Aquarius">
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                    <div class="hs_ar_third_sec_title_img">
+                        <img src="~/images/content/about/aquarius1.jpg" alt="ar_img">
+                        @*<ul>
+                                <li><a href="#">Family</a></li>
+                            </ul>*@
+                    </div>
+                </div>
+            </a>
+            <a href="/Pisces/Piscec">
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                    <div class="hs_ar_third_sec_title_img">
+                        <img src="~/images/content/about/pisces1.jpg" alt="ar_img">
+                        @*<ul>
+                                <li><a href="#">Family</a></li>
+                            </ul>*@
+                    </div>
+                </div>
+            </a>
+
+        </div>
+    </div>
+</div>
+
 <!-- hs About Title End -->
 <!-- hs sign wrapper Start -->
-<div class="hs_sign_main_wrapper">
+<div class="hs_sign_main_wrapper" style="display:none">
     <div class="container">
         @*<div class="hs_sign_heading_wrapper">
-            <div class="hs_about_heading_main_wrapper">
-                <div class="hs_about_heading_wrapper">
-                    <h2>Your <span style="color:#ff880e"> horoscope</span></h2>
-                    <h4><span></span></h4>
-                    <p>Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum<br> auctor, nisi elit consequat hello Aenean world.</p>
+                <div class="hs_about_heading_main_wrapper">
+                    <div class="hs_about_heading_wrapper">
+                        <h2>Your <span style="color:#ff880e"> horoscope</span></h2>
+                        <h4><span></span></h4>
+                        <p>Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum<br> auctor, nisi elit consequat hello Aenean world.</p>
+                    </div>
                 </div>
-            </div>
-        </div>*@
+            </div>*@
         <div class="hs_sign_center_wrapper visible-xs visible-sm">
             <div class="hs_cycle_main_wrapper">
                 <div class="hs_cycle_img">

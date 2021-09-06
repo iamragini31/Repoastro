@@ -48,6 +48,8 @@
     <Compile Include="AquariusModel.cs" />
     <Compile Include="AriesModel.cs" />
     <Compile Include="BengaliCalendarModel.cs" />
+    <Compile Include="BlogDetailsModel.cs" />
+    <Compile Include="BlogListModel.cs" />
     <Compile Include="BookingFormModel.cs" />
     <Compile Include="CallIntakeFormModel.cs" />
     <Compile Include="CallOrdersModel.cs" />
