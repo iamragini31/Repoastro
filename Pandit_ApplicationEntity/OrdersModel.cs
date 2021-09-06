@@ -13,5 +13,7 @@ namespace Pandit_ApplicationEntity
         public string Custname { get; set; }
         public string Servicename { get; set; }
         public string ReceivedDate { get; set; }
+
+        public string Receivedtime { get; set; }
     }
 }

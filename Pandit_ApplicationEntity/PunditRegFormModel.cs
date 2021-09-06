@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,6 +12,10 @@ namespace Pandit_ApplicationEntity
         public string Fullname { get; set; }
         public string Countrycode { get; set; }
         public long Mobile { get; set; }
+
+        [Display(Name = "Email")]
+        [Required(ErrorMessage = "The email address is required")]
+        [EmailAddress(ErrorMessage = "The email address is not valid")]
         public string Email { get; set; }
         public string Gender { get; set; }
         public string DOB { get; set; }

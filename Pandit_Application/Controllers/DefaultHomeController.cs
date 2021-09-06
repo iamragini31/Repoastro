@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using Twilio;
-using Twilio.Rest.Api.V2010.Account;
-using Twilio.Types;
+//using Twilio;
+//using Twilio.Rest.Api.V2010.Account;
+//using Twilio.Types;
+
 
 using Pandit_ApplicationEntity;
 using Pandit_ApplicationManager;
@@ -22,6 +23,8 @@ namespace Pandit_Application.Controllers
         {
             ViewBag.Name = Session["FullName"];
             ViewBag.UserId = Session["CustomerID"];
+            Mails mail = new Mails();
+            mail.Mailoutlook();
             //Session["CustomerID"] = null;
             // var call = GetCall();
             // const string accountSid = "AC11082ad28e8d4a072bcd8233e97786bc";
@@ -38,19 +41,19 @@ namespace Pandit_Application.Controllers
             return View();
         }
 
-        public string GetCall()
-        {
-            const string accountSid = "AC11082ad28e8d4a072bcd8233e97786bc";
-            const string authToken = "258be23fca4a9c7a1f484eb6593356d7";
-            TwilioClient.Init(accountSid, authToken);
+        //public string GetCall()
+        //{
+        //    const string accountSid = "AC11082ad28e8d4a072bcd8233e97786bc";
+        //    const string authToken = "258be23fca4a9c7a1f484eb6593356d7";
+        //    TwilioClient.Init(accountSid, authToken);
 
-            var to = new PhoneNumber("+917209860586");
-            var from = new PhoneNumber("+17088310820");
-            var call = CallResource.Create(to, from,
-                url: new Uri("http://demo.twilio.com/docs/voice.xml"));
+        //    var to = new PhoneNumber("+917209860586");
+        //    var from = new PhoneNumber("+17088310820");
+        //    var call = CallResource.Create(to, from,
+        //        url: new Uri("http://demo.twilio.com/docs/voice.xml"));
 
-            return call.Sid;
-        }
+        //    return call.Sid;
+        //}
 
 
         public ActionResult SaveCustomer(FormCollection form)

@@ -31,6 +31,7 @@ namespace Pandit_ApplicationManager
                         model.ReceivedDate = dt.Rows[i]["Received_Date"].ToString();
                         model.Servicename = dt.Rows[i]["Service"].ToString();
                         model.ID = Convert.ToInt32(dt.Rows[i]["ID"]);
+                        model.Receivedtime = dt.Rows[i]["ReceiveTime"].ToString();
                         //model.Service_Time= dt.Rows[i][""].ToString();
                         //model.Status = dt.Rows[i]["Status"].ToString();
                         list.Add(model);

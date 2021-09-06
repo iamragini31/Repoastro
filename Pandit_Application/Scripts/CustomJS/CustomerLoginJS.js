@@ -87,7 +87,7 @@ function RegisterCustomer() {
                 }
                 else {
 
-                    alert("Customer Not Registered.");
+                    alert("This email id is already registered, log in");
                     //window.location.href = "/DefaultHome/Default";
                     window.location.reload();
                     //clearform();
@@ -525,7 +525,7 @@ function getUserInforegister() {
                     }
                     else {
 
-                        alert("Customer Not Registered.");
+                        alert("This email id is already registered, log in");
                         //window.location.href = "/DefaultHome/Default";
                         window.location.reload();
                         //clearform();

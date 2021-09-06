@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net.Mail;
 using System.Web;
-
+using System.Configuration;
 namespace Pandit_Application
 {
-    public class Mail
+    public class Mails
     {
 
         public static int SendMailforMeeting(string To, string Subject, string Message)
@@ -58,5 +58,51 @@ namespace Pandit_Application
             //smtp.Send(message);K93bhgu5rzg-eMaMjYyNgwb64QOgyu4QNxFnNymfwY
             return res = 1;
         }
+
+
+        public void Mailoutlook()
+        {
+            bool status = false;
+
+        
+            //var customer = dalObj.GetCustomerDetails(Convert.ToInt32(Session["id"]));
+            string email = "iamragini23@gmail.com";
+            string name = "Ragini";
+
+            MailMessage mailMessage = new MailMessage("operations@astrohouz.com", email);
+            //mailMessage.To.Add(new MailAddress(email, name));
+            //mailMessage.From = new MailAddress("operations@astrohouz.com");
+            //mailMessage.Sender = new MailAddress("sender-outlook-email", "sender-name");
+            mailMessage.Subject = "<h3>Password reset</h3>";
+            mailMessage.Body = "Hello";
+            mailMessage.IsBodyHtml = true;
+            mailMessage.Priority = MailPriority.High;
+            
+            SmtpClient smtp = new SmtpClient("smtp-mail.outlook.com");
+            smtp.Port = 587;
+            smtp.Credentials = new System.Net.NetworkCredential("operations@astrohouz.com", "Kumar@321");
+            smtp.UseDefaultCredentials = true;
+
+            try
+            {
+                smtp.Send(mailMessage);
+                status = true;
+            }
+
+            catch (Exception ex)
+            {
+                var err = ex;
+                status = false;
+            }
+            if (status)
+            {
+                var st = status;
+            }
+
+            else
+            {
+                var st = status;
+            }
+        }
     }
-}
+    }

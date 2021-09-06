@@ -465,7 +465,7 @@ namespace Pandit_Application.Controllers
                         "UserID:" + res.USerid +
                         "</br>Password:" + res.Password + "" +
                         "</br>Link: <a href='pandit.erpcart.in'></a>";
-                    Mail.SendMailforMeeting(To, Subject, Message);
+                    Mails.SendMailforMeeting(To, Subject, Message);
                 }
 
             }

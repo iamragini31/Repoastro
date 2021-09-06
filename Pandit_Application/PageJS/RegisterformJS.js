@@ -567,10 +567,10 @@ function GetAllServices() {
                 tabstring += "</div>"
                 tabstring += "</div>"
                 tabstring += " <div class='col-sm-1' style='display:inline;    margin-bottom: 46px;'>"
-                tabstring += "<input type='text' class='form-control input-style disabled1' placeholder='USD' id='txtservicesprice" + i + "'>"
+                tabstring += "<input type='text' disabled='disabled' class='form-control input-style disabled1' placeholder='USD' id='txtservicesprice" + i + "'>"
                 tabstring += "</div>"
                 tabstring += " <div class='col-sm-1' style='display:inline;    margin-bottom: 46px;'>"
-                tabstring += "<input type='text' class='form-control input-style disabled1' onchange='saveServices(" + i + ")' placeholder='INR' id='txtservicespriceINR" + i + "'>"
+                tabstring += "<input type='text' disabled='disabled' class='form-control input-style disabled1' onchange='saveServices(" + i + ")' placeholder='INR' id='txtservicespriceINR" + i + "'>"
                 tabstring += "</div>"
                 tabstring += "<div class='col-sm-1'>"
                 tabstring += "</div>"
@@ -622,11 +622,11 @@ function GetAllPuja() {
                 tabstring += "    </div>"
 
                 tabstring += "     <div class='col-sm-1' style='display:inline;margin-bottom: 46px;'>"
-                tabstring += "         <input type='text'  class='form-control input-style disabled1' placeholder='USD' id='txtpuja" + i + "'>"
+                tabstring += "         <input type='text' disabled='disabled'  class='form-control input-style disabled1' placeholder='USD' id='txtpuja" + i + "'>"
 
                 tabstring += "      </div>"
                 tabstring += "     <div class='col-sm-1' style='display:inline;margin-bottom: 46px;'>"
-                tabstring += "         <input type='text' onchange='PujaServices(" + i + ")' class='form-control input-style disabled1' placeholder='INR' id='txtpujaINR" + i + "'>"
+                tabstring += "         <input type='text' disabled='disabled' onchange='PujaServices(" + i + ")' class='form-control input-style disabled1' placeholder='INR' id='txtpujaINR" + i + "'>"
 
                 tabstring += "      </div>"
                 tabstring += "       <div class='col-sm-1'></div>"
@@ -665,10 +665,15 @@ function RemoveDisability(i) {
         $("#txtservicesprice").css("background-color", "white");
         $("#txtservicespriceINR" + i).removeClass("disabled1");
         $("#txtservicespriceINR").css("background-color", "white");
+        $("#txtservicesprice" + i).removeAttr("disabled");
+        $("#txtservicespriceINR" + i).removeAttr("disabled")
+
     }
     else {
         $("#txtservicesprice" + i).addClass("disabled1");
         $("#txtservicespriceINR" + i).addClass("disabled1");
+        $("#txtservicesprice" + i).attr("disabled",'disabled');
+        $("#txtservicespriceINR" + i).attr("disabled", 'disabled');
     }
 }
 function RemovePujaDisability(i) {
@@ -678,10 +683,14 @@ function RemovePujaDisability(i) {
         $("#txtpuja").css("background-color", "white");
         $("#txtpujaINR" + i).removeClass("disabled1");
         $("#txtpujaINR").css("background-color", "white");
+        $("#txtpuja" + i).removeAttr("disabled");
+        $("#txtpujaINR" + i).removeAttr("disabled")
     }
     else {
         $("#txtpuja" + i).addClass("disabled1");
         $("#txtpujaINR" + i).addClass("disabled1");
+        $("#txtpuja" + i).attr("disabled", 'disabled');
+        $("#txtpujaINR" + i).attr("disabled", 'disabled');
     }
 }
 function BindPackages() {

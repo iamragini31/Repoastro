@@ -132,6 +132,9 @@ namespace Pandit_ApplicationManager
             int result = clsDataAccess.ExecuteNonQuery(CommandType.StoredProcedure, "Sp_PanditRegistration", p1, p2, p3, p4, p5, p6, p7,
                     p8, p9, p10, p11, p12, p13, p14, p15, p16, p17, p18, p19, p20, p21, p22, p23, p24, p25, p26, flag, p27
                     );
+            if(result > 0)
+            {
+
             SqlParameter flg = new SqlParameter("@Flag", "10");
             DataTable dt = clsDataAccess.ExecuteDataTable(CommandType.StoredProcedure, "Sp_PanditRegistration", flg);
             if (dt != null && dt.Rows.Count > 0)
@@ -141,7 +144,9 @@ namespace Pandit_ApplicationManager
                 SqlParameter p29 = new SqlParameter("@ID", res);
                 clsDataAccess.ExecuteNonQuery(CommandType.StoredProcedure, "Sp_UploadDocuments", p4a, p4b, p4c, p13a, p13b, p13c, p17a, p17b, p17c, p28, p29);
             }
-            return res;
+
+            }
+            return result;
 
 
         }

@@ -49,7 +49,7 @@ namespace Pandit_ApplicationManager
 
 
 
-                SqlParameter p8 = new SqlParameter("@Flag", 1);
+                SqlParameter p8 = new SqlParameter("@Flag",'1');
 
                 DataSet dt = new DataSet();
                 dt = clsDataAccess.ExecuteDataset(CommandType.StoredProcedure, "Sp_Customer_Puja_Master", p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p21,p22,p23,p24,p25,p26,p27,p28);

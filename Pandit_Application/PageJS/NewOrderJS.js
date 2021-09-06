@@ -24,7 +24,7 @@ function BindServices() {
                     rows += "<tr> <td><a href='#' style='text-decoration:underline'>" + item.OrderID + "</a></td >"
                         + "  <td>" + item.Custname + "</td>"
                         + "   <td>" + item.ReceivedDate + "</td>"
-                        + "   <td>3pm</td>"
+                        + "   <td>" + item.Receivedtime+"</td>"
                         + " <td>" + item.Servicename + "</td > "
                         + "<td> <a href='#' class='btn btn-success' onclick='Acceptorder(" + item.ID + ")'> <span>Accept</span></a> <a href='#' class='btn btn-danger' onclick='Rejectorder(" + item.ID + ")'> <span>Reject</span></a></td> </tr>";
                         

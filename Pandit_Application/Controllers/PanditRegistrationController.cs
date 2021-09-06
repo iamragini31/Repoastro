@@ -191,7 +191,7 @@ namespace Pandit_Application.Controllers
                         "Pandit ID:" + res.USerid +
                         "</br>" +
                         "</br>Link: <a href='Astrohouz.erpcart.in/DefaultAdminPortal/DefaultAdminPortal'>Click</a>";
-                    Mail.SendMailforMeeting(To, Subject, Message);
+                    Mails.SendMailforMeeting(To, Subject, Message);
                 }
             }
             string DOB = Panditmodel.DOB;
